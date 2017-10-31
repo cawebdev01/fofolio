@@ -1,14 +1,40 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <ion-row>
+        <ion-col col-3>
+          <img src="assets/imgs/logo.png" />
+        </ion-col>
+        <ion-col id="maintitle" col-9 text-center>
+        Arcamone Créations</ion-col>
+      </ion-row>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding >
+  <ion-slides loop="true">
+    <ion-slide *ngFor="let d of datas">
+      <ion-row>
+        <ion-col col-8>
+          {{ d. title }} / {{ d.type }}<br>
+          <p>{{ d.description }}</p>
+        </ion-col>
+        <ion-col col-4>
+          <img [src]="d.thumbnail" /> <br>
+          {{ d.tags }}
+          
+        </ion-col>
+      </ion-row>
+      <!--{{ d.id }} <br-->
+      
+    </ion-slide> 
+  </ion-slides>
+  <p>Arcamone Créations est le portfolio de Clément Arcamone, le prestataire multi compétence de vos projets multimédias. <br>
+    En effet, je suis webdeveloppeur, vidéaste et photographe:<br ></p>
+    <ul text-left>
+      <li><b (click)="webhome()">Webdéveloppeur</b>: Je développe et j'optimise vos projets informatiques (Sites, Portfolios, Blog, E-Boutiques, Applications, Intranet, &hellip;). </li><br>
+      <li><b (click)="photohome()">Photographe</b>: J'effectue la prise de vue en studio ou en exterieur, le reportage de vos évènements privés, professionnels ou d'entreprise.</li><br>
+      <li><b (click)="videohome()">Vidéaste</b>: Je réalise des reportages vidéos, des clips ou des captations d'évènements. Je assure ensuite la post production et le montage.</li>
+    </ul>
 </ion-content>
